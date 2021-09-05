@@ -1,0 +1,16 @@
+{
+    "python.languageServer": "Pylance",
+    "python.linting.pylintEnabled": false,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none"
+    },
+    "python.analysis.extraPaths": [
+        "c:\\Users\\coolc\\.vscode\\extensions\\joedevivo.vscode-circuitpython-0.1.15\\boards\\0x239A\\0x801F",
+        "c:\\Users\\coolc\\.vscode\\extensions\\joedevivo.vscode-circuitpython-0.1.15\\stubs",
+        "c:\\Users\\coolc\\AppData\\Roaming\\Code\\User\\globalStorage\\joedevivo.vscode-circuitpython\\bundle\\20210903\\adafruit-circuitpython-bundle-py-20210903\\lib",
+        "c:\\Users\\coolc\\.vscode\\extensions\\joedevivo.vscode-circuitpython-0.1.13\\stubs"
+    ],
+    "circuitpython.board.version": "6.3.0",
+    "circuitpython.board.vid": "0x239A",
+    "circuitpython.board.pid": "0x801F"
+}

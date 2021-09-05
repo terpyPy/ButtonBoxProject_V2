@@ -332,4 +332,9 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+<<<<<<< Updated upstream
+=======
+.vscode/.ropeproject/config.py
+.vscode/.ropeproject/objectdb
+>>>>>>> Stashed changes
 .vscode/settings.json

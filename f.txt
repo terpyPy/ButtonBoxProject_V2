@@ -1,0 +1,14 @@
+[
+    [(OFF), (OFF), (OFF), (OFF)], 
+    [(OFF), (OFF), (OFF), (OFF)], 
+    [(OFF), (OFF), (OFF), (OFF)], 
+    [(OFF), (OFF), (OFF), (OFF)]
+]
+0 = board[0][0]
+
+while True:
+    event = int(input('buntton presses?: '))
+    row, col = arrayMap(event, 4)
+    print(row,col)
+    eventNeighbors = neighbors(x, row, col)
+    print(eventNeighbors)
