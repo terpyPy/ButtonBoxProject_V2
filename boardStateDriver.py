@@ -31,16 +31,23 @@ class boardState():
         if self.onColor not in flatlist:
             print('you won')
             return True
-
+    def animation(self):
+        self.previousButtonPressed = randrange(16)
+        self.theBoard = boardFunc.gameLogic(self.theBoard, self.previousButtonPressed,self.onColor,self.offColor)
+        
     # random pattern game init
     def randomStart(self):
-        self.theBoard[randrange(0,4)][randrange(0,4)] = self.onColor
-        
+        for i in range(0,15):
+            self.previousButtonPressed = randrange(i,16)
+            self.theBoard = boardFunc.gameLogic(self.theBoard, self.previousButtonPressed,self.onColor,self.offColor)
+    def clearBoard(self):
+        self.previousButtonPressed = None
+        self.theBoard = [[self.offColor]*self.N for _ in range(self.N)]
+        self.randomStart()
 
     def boardLogic(self, event):
         self.eventButt = event.number
         # takes theboard and "event" or pressed button as an argument and updates the board state
-        
         if self.debounce():
             # check if the player is pressing the same button they did last turn
             if not self.eventButt == self.previousButtonPressed:
@@ -48,11 +55,10 @@ class boardState():
                 self.previousButtonPressed = self.eventButt
                 # run the game
                 self.theBoard = boardFunc.gameLogic(self.theBoard,self.eventButt,self.onColor,self.offColor)
-
                 if self.checkWin():
                         # if a win is registered set the whole board to the win color
                         for row in range(self.N):
                             for col in range(self.N):
-                                self.theBoard[row][col] = self.winColor
+                                self.theBoard[row][col] = self.winColor 
             # update the last pressed time for debouncing purposes 
             self.timePressed = monotonic()
