@@ -16,11 +16,6 @@ class boardState():
         self.timePressed = monotonic()
         self.eventButt = None
         self.previousButtonPressed = None
-<<<<<<< Updated upstream
-        self.gamePlaying = 'eight'
-=======
-
->>>>>>> Stashed changes
     def debounce(self):
         # filters button inputs, input will only be accepted every 0.2 seconds as measured from last press
         if monotonic() - self.timePressed > 0.2:
@@ -34,50 +29,6 @@ class boardState():
         if self.onColor not in flatlist:
             print('you won')
             return True
-<<<<<<< Updated upstream
-    def randomStart(self):
-        self.theBoard[randrange(0,15)] = self.onColor
-    def clearBoard(self):
-        # return a list representation of a blank board
-        self.theBoard = [(0,0,0)]*16
-    def choseGame(self):
-        # if the game type flag starts with 'e' assume eight neighbor game and operate its logic on the board
-        # else its four game
-        if 'e' in self.gamePlaying:
-            self.theBoard = boardFunc.gameLogic(self.theBoard, self.eventButt, self.onColor, self.offColor)
-        else:
-            self.theBoard = boardFunc.fourNeighborGame(self.theBoard, self.eventButt, self.onColor, self.offColor)
-    # this is the first method to go when refactoring for none test builds or when memory errors happen
-    def simTest(self):
-            if self.checkWin():# check win first to make the if else less heavy on the stack and logical
-                            # if a win is registered set the whole board to the win color
-                            for i in range(16):
-                                self.theBoard[i] = self.winColor
-            else:
-                #play the game like normal, just no debounce
-                self.eventButt = randrange(0,15)
-                if not self.eventButt == self.previousButtonPressed:
-                    # if not then do the main game logic
-                    self.choseGame()    
-                else:
-                    self.eventButt = randrange(self.previousButtonPressed,15)
-                    self.choseGame()
-                self.previousButtonPressed = self.eventButt
-    def buttonPressed(self, event):
-        if self.sim:
-            self.eventButt = event
-        else:
-            self.eventButt = event.number
-        # takes theboard and "event" or pressed button as an argument and updates the board state
-            if self.debounce():
-                # check if the player is pressing the same button they did last turn
-                if not self.eventButt == self.previousButtonPressed:
-                    # if not then do the main game logic
-                    self.previousButtonPressed = self.eventButt
-                    # choseGame modify the board state given the flag set on main for the given game
-                    self.choseGame()
-                    if self.checkWin():
-=======
     def animation(self):
         self.previousButtonPressed = randrange(16)
         self.theBoard = boardFunc.gameLogic(self.theBoard, self.previousButtonPressed,self.onColor,self.offColor)
@@ -103,7 +54,6 @@ class boardState():
                 # run the game
                 self.theBoard = boardFunc.gameLogic(self.theBoard,self.eventButt,self.onColor,self.offColor)
                 if self.checkWin():
->>>>>>> Stashed changes
                         # if a win is registered set the whole board to the win color
                         for row in range(self.N):
                             for col in range(self.N):
