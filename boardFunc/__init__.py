@@ -1,1 +1,1 @@
-from .gameLogic import gameLogic
+from .gameLogic import GameLogic, checkWin

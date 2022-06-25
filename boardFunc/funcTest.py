@@ -16,3 +16,4 @@ def arrayMap(i, width):
     x = i % width;    # the remainder of i / width
     y = i // width;    # // is floor division
     return y,x
+    
